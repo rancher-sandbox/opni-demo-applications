@@ -1,5 +1,7 @@
 # opni-demo-applications
 
+![sock shop topology](https://raw.githubusercontent.com/microservices-demo/microservices-demo.github.io/0ac7e0e579d83ce04e14f3b0942f7a463b72da74/assets/Architecture.png)
+
 ### Sock Shop
 1. Deploy sock shop application
     ```
