@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongo-insert
+  namespace: sock-shop
+spec:
+  template:
+    metadata:
+      labels:
+        app: mongo-insert
+    spec:
+      containers:
+      - name: mongo-insert
+        image: amartyarancher/mongo-insert
+        imagePullPolicy: Always
+      restartPolicy: Never
