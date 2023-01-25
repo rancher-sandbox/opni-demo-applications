@@ -1,0 +1,142 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 35.0.3
+    release: release-name
+  name: carts
+  namespace: opni
+spec:
+  endpoints:
+    - interval: 60s
+      path: /metrics
+      scheme: http
+      targetPort: 80
+  jobLabel: carts
+  namespaceSelector:
+    matchNames:
+      - sock-shop
+  selector:
+    matchLabels:
+      name: carts
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 35.0.3
+    release: release-name
+  name: catalogue
+  namespace: opni
+spec:
+  endpoints:
+    - interval: 60s
+      path: /metrics
+      scheme: http
+      targetPort: 80
+  jobLabel: catalogue
+  namespaceSelector:
+    matchNames:
+      - sock-shop
+  selector:
+    matchLabels:
+      name: catalogue
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 35.0.3
+    release: release-name
+  name: front-end
+  namespace: opni
+spec:
+  endpoints:
+    - interval: 60s
+      path: /metrics
+      scheme: http
+      targetPort: 80
+  jobLabel: front-end
+  namespaceSelector:
+    matchNames:
+      - sock-shop
+  selector:
+    matchLabels:
+      name: front-end
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    release: release-name
+  name: payment
+  namespace: opni
+spec:
+  endpoints:
+    - interval: 10s
+      path: /metrics
+      scheme: http
+      targetPort: 80
+  jobLabel: payment
+  namespaceSelector:
+    matchNames:
+      - sock-shop
+  selector:
+    matchLabels:
+      name: payment
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 35.0.3
+    release: release-name
+  name: shipping
+  namespace: opni
+spec:
+  endpoints:
+    - interval: 60s
+      path: /metrics
+      scheme: http
+      targetPort: 80
+  jobLabel: shipping
+  namespaceSelector:
+    matchNames:
+      - sock-shop
+  selector:
+    matchLabels:
+      name: shipping
+--- 
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 35.0.3
+    release: release-name
+  name: user
+  namespace: opni
+spec:
+  endpoints:
+    - interval: 60s
+      path: /metrics
+      scheme: http
+      targetPort: 80
+  jobLabel: user
+  namespaceSelector:
+    matchNames:
+      - sock-shop
+  selector:
+    matchLabels:
+      name: user

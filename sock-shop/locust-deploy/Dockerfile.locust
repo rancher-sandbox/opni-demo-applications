@@ -1,0 +1,13 @@
+FROM python:latest
+
+COPY . /usr/src/app
+
+WORKDIR /usr/src/app
+
+RUN python3 -m venv /opt/venv
+
+RUN . /opt/venv/bin/activate && pip install -r requirements.txt
+# RUN pip list
+# RUN ls -lart
+# RUN which locust
+CMD . /opt/venv/bin/activate && locust --headless -u 10 -r 1 --host=$FRONT_END_URL -f /usr/src/app/locustfile.py
